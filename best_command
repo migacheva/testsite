@@ -1,0 +1,48 @@
+python manage.py runserver
+
+python manage.py makemigrations
+
+python manage.py sqlmigrate news '0001'
+
+python manage.py migrate
+
+
+(venv) C:\study\django-sites\testsite\mysite>python manage.py shell
+
+python manage.py shell
+>>> from news.models import News
+>>> News(title='Новость 1', content='Контент новости 1')
+>>> news1 = _
+>>> news1.save()
+
+>>> from django.db import connection
+>>> connection.queries
+[{'sql': 'INSERT INTO "news_news" ("title", "content", "created_at", "updated_at", "photo", "is_published") VALUES (\'Новость 1\', \'Контент новости 1\', \'2020-06-2
+8 17:18:17.270320\', \'2020-06-28 17:18:17.270320\', \'\', 1)', 'time': '0.000'}]
+
+>>> news2 = News(title='Новость 2', content='Контент новости 2')
+>>> news2.save()
+>>> news3 = News()
+>>> news3.title = 'новостьтьть3'
+>>> news3.content = 'Контент новости 3'
+>>> news3.save()
+>>> news4 = News.objects.create(title='Новость4', content='4')
+>>> news4.pk
+>>> News.objects.create(title='5',content='55')
+
+
+===
+
+>>> News.objects.all()
+>>> news = _
+>>> for item in news:
+...     print(item.title, item.is_published)
+...
+
+>>> News.objects.filter(title='5')
+>>> News.objects.get(pk='5')
+>>> news7.delete()
+(1, {'news.News': 1})
+>>> News.objects.order_by('title')
+>>> News.objects.order_by('-title')
+>>> News.objects.exclude(title='5')
