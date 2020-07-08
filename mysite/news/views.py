@@ -4,7 +4,7 @@ from .models import News
 
 
 def index(request):
-    news = News.objects.order_by('-id')
+    news = News.objects.all()
 
     context = {
         'news': news,

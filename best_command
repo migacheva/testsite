@@ -46,3 +46,7 @@ python manage.py shell
 >>> News.objects.order_by('title')
 >>> News.objects.order_by('-title')
 >>> News.objects.exclude(title='5')
+
+==========
+python manage.py createsuperuser
+admin - admin
