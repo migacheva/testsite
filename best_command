@@ -50,3 +50,5 @@ python manage.py shell
 ==========
 python manage.py createsuperuser
 admin - admin
+========
+Констреин - ограничения к таблицам,например on_delete
